@@ -1,0 +1,25 @@
+n = int(input("Enter number from 0~255: "))
+base = int(input("Enter 2 for binary or 16 for hexadecimal: "))
+l = []
+while n != 0:
+    if base == 2:
+        r = n % 2
+    else:
+        r = n % 16
+        if r == 10:
+            r = "A"
+        elif r == 11:
+            r = "B"
+        elif r == 12:
+            r = "C"
+        elif r == 13:
+            r = "D"
+        elif r == 14:
+            r = "E"
+        elif r == 15:
+            r = "F"
+    l.append(r)
+    n = n // base
+
+l.reverse()
+print(l)
