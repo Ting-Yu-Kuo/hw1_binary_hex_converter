@@ -1,0 +1,8 @@
+n = int(input("Enter number from 0~255: "))
+l = []
+while n != 0:
+    r = n % 2
+    l.append(r)
+    n = n // 2
+l.reverse()
+print(l)
