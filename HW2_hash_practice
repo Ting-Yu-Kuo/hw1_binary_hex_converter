@@ -1,0 +1,23 @@
+#輸入要統計的字串
+input_str = input("請輸入一個字串 ： ")
+
+#將字串轉小寫，類似標準化的概念，因為大小寫的差異會導致辨識成不同的單字，並切割成單字
+words = input_str.lower().split()
+
+#建一個空dic
+freq_dict = {}
+
+#掃描字串，開始統計
+for word in words:
+    if word in freq_dict:
+        freq_dict[word] += 1 #如果已經有這個單字的話，就加一
+    else:
+        freq_dict[word] = 1 #如果這個單字是新的，那就假設他的value為1，然後再遇到的話就加一
+        
+#算出不重複的英文單字        
+unique_words = len(freq_dict)
+
+print("總共有{}個不重複的英文單字：".format(unique_words))
+
+for word, freq in freq_dict.items():
+    print("{}出現了{}次".format(word, freq))
