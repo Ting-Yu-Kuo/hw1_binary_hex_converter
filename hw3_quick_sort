@@ -1,0 +1,25 @@
+def quick_sort(arr): #首先要先做一個function,讓它執行quick sort
+    if len(arr) <= 1:
+        return arr
+    else:
+        pivot = arr[0] #將陣列最開始元素當成基準點
+        left = [] #左邊 = 小於基準點
+        right = [] #右邊 = 大於基準點
+        for i in range(1, len(arr)): #開始工作，比基準點小的丟左邊，大的丟右邊
+            if arr[i] < pivot:
+                left.append(arr[i])
+            else:
+                right.append(arr[i])
+
+        sorted_left = quick_sort(left)
+        sorted_right = quick_sort(right)
+        sorted_arr = sorted_left + [pivot] + sorted_right #最後排序好的序列=左邊序列+基準點+右邊序列
+
+        return sorted_arr
+
+arr = input("請自行輸入要排序的數列，數字以空格分開: ")
+arr = list(map(int, arr.split()))
+
+sorted_arr = quick_sort(arr)
+
+print("排序結果: ", sorted_arr)
